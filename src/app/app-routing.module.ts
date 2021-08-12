@@ -9,7 +9,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:'inicio', component: InicioComponent
+    path: 'inicio', component: InicioComponent
   },
   {
     path: '**',
