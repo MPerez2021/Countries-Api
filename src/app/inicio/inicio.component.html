@@ -1,3 +1,21 @@
 <div class="container-fluid">
+    <div class="cards">
+        <div class="container cards__countries">
+            <div class="row g-4">
+                <div class="col-3 d-flex justify-content-around" *ngFor="let item of countries">
+                    <div class="card">
+                        <img src="{{item.flag}}" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">{{item.name}}</h4>
+                            <h5 class="card-text">Region</h5>
+                            <h5 class="card-text">Region</h5>
+                            <h5 class="card-text">Region</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </div>
