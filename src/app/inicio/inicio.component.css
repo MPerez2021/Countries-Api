@@ -1,11 +1,84 @@
 .cards{
     min-height: calc(100vh - 86px);
     width: 100%;   
- 
+    
 }
+
+.cards__top{
+    display: flex;
+    padding: 10px; 
+    margin-top: 20px;  
+}
+
 .cards__countries{
     padding: 15px;
 }
+
+.cards__search{
+    display: flex;
+    align-items: center;
+    background-color: #eff2f5;
+    padding: 10px;
+    margin-left: 10px; 
+    border-radius: 999px;
+    width: 300px;  
+}
+
+.cards__search > i{
+    display: flex;
+    align-items: center; 
+    color: gray;
+    cursor: pointer;
+}
+.cards__search > input {
+    border: none;
+    background-color: transparent;
+    outline-width: 0;
+    margin-left: 10px;
+}
+
+.cards__filter{
+    display: flex;
+    align-items: center;
+}
+
+.cards__dropdown{
+    display: flex;  
+    height: 100%;  
+}
+
+.cards__dropdown > button{  
+    display: flex;
+    width: 200px;  
+    background-color: #eff2f5;
+    border: none;
+    outline-width: 0;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px;   
+}
+.cards__dropdown > button > i {   
+   margin-right: 15px;
+}
+.fa-chevron-down{
+    transition: all 0.4s ease;
+
+}
+
+.fa-chevron-down:hover{
+
+    transform: rotate(180deg);
+}
+
+.dropdown-menu{
+    width: 100%;
+}
+
+.cards__grid{
+    padding: 30px;
+}
+
 .card{
     width: 280px;
     height: 100%;
@@ -18,9 +91,11 @@
 .card:hover{
     transform: scale(1.05);
 }
+
 .card > img{
     border-radius: 0.5rem 0.5rem 0 0;
     object-fit: cover;
+    object-position: center center;
     height: 180px;
     width: 100%;
 }

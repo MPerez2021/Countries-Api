@@ -15,31 +15,7 @@
     cursor: pointer;
     font-size: 20px;
 }
-.header__search{
-    display: flex;
-    align-items: center;
-    background-color: #eff2f5;
-    padding: 10px;
-    margin-left: 10px; 
-    border-radius: 999px;
-}
-.header__search > i{
-    display: flex;
-    align-items: center; 
-    color: gray;
-    cursor: pointer;
-}
-.header__search > input {
-    border: none;
-    background-color: transparent;
-    outline-width: 0;
-    margin-left: 10px;
-}
-.header__filter{
-    display: flex;
-    align-items: center;
-    margin-left: 20px;    
-}
+
 .header__right{
     font-size: 20px;
     cursor: pointer;

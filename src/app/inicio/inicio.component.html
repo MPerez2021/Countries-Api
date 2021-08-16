@@ -1,19 +1,58 @@
 <div class="container-fluid">
     <div class="cards">
-        <div class="container cards__countries">
-            <div class="row g-4">
-                <div class="col-3 d-flex justify-content-around" *ngFor="let item of countries">
-                    <div class="card">
-                        <img src="{{item.flag}}" alt="">
-                        <div class="card-body">
-                            <h4 class="card-title">{{item.name}}</h4>
-                            <h5 class="card-text">Region</h5>
-                            <h5 class="card-text">Region</h5>
-                            <h5 class="card-text">Region</h5>
+        <div class="cards__top">
+            <div class="cards__search">
+                <i class="fas fa-search"></i>
+                <!--   <input placeholder="Search for a country" (change)="searchCountries($event)" type="text" list="datalistOptions" id="filterInput">     -->
+                <input placeholder="Search for a country" type="text" list="datalistOptions" id="filterInput">
+                <datalist id="datalistOptions">
+                    <div *ngFor="let item of countriesFound">
+                        <option value="{{item.name}}">
+                    </div>
+                </datalist>
+            </div>
+            <div class="cards__filter">
+                <div class="dropdown cards__dropdown">
+                    <button type="button" data-bs-toggle="dropdown">
+                        <div> {{filterName}}
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+
+
+                    </button>
+                    <ul class="dropdown-menu">
+                        <div *ngFor="let region of regions">
+                            <li (click)="filterByRegion(region.name)"><a class="dropdown-item">{{region.name}}</a></li>
+                        </div>
+                    </ul>
+                </div>
+                <div>
+                    Total Countries: {{totalCountries}}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cards__countries" id="Cards">
+            <ng-container *ngIf="countriesFound && countriesFound.length === 0 else contenido">
+                <h2>no hay resultados</h2>
+            </ng-container>
+            <ng-template #contenido>
+                <div class="row g-4">
+                    <div class="col-3 cards__grid d-flex justify-content-around"
+                        *ngFor="let country of countriesFound ? countriesFound : countries">
+                        <div class="card" routerLink='/inicio/{{country.alpha3Code}}'>
+                            <img src="{{country.flag}}" alt="">
+                            <div class="card-body">
+                                <h4 class="card-title">{{country.name}}</h4>
+                                <h5 class="card-text">{{country.region}}</h5>
+                                <h5 class="card-text">Region</h5>
+                                <h5 class="card-text">Region</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </ng-template>
         </div>
 
     </div>

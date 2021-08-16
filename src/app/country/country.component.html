@@ -1,0 +1,12 @@
+<div *ngIf="country">
+    dfsdfad
+
+    {{country.name}}
+
+    <div *ngFor="let item of country.borders">
+        <!-- <a href="/inicio/{{item}}">{{changeCodeForCountryName(item)}}</a> -->
+
+        <button (click)="redirecTo(item)">{{changeCodeForCountryName(item)}}</button>
+    </div>
+
+</div>

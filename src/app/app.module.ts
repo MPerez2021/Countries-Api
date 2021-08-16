@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CountryComponent } from './country/country.component';
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    HeaderComponent
+    HeaderComponent,
+    CountryComponent
 
   ],
   imports: [
