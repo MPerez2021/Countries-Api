@@ -1,5 +1,5 @@
 export interface Countries {
-    name?: string
+    name: string
     topLevelDomain?: string[]
     alpha2Code?: string
     alpha3Code?: string
@@ -8,17 +8,17 @@ export interface Countries {
     altSpellings?: string[]
     region?: string
     subregion?: string
-    population?: number
+    population: number
     latlng?: number[]
     demonym?: string
     area?: number
     gini?: number
-    timezones?: string[]
-    borders?: string[]
+    timezones: string[]
+    borders: string[]
     nativeName?: string
     numericCode?: string
-    currencies?: Currency[]
-    languages?: Language[]
+    currencies: Currency[]
+    languages: Language[]
     translations?: Translations[]
     flag?: string
     regionalBlocs?: RegionalBloc[]

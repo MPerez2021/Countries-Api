@@ -1,0 +1,73 @@
+.h{
+    background-color: #fafafa;
+    min-height: calc(100vh - 60px)
+}
+.country{
+    padding-top: 50px;
+}
+.country > button{  
+    padding: 10px 35px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px rgba(0 0 0 / 10%), 0 0.2rem 0.1rem rgb(0 0 0 / 5%);
+    display: flex;
+    align-items: center;
+}
+
+.country > button > i{
+    margin-right: 10px;
+    font-size: 1rem;
+}
+.country__data{
+    display: flex;
+    margin-top: 50px;
+
+}
+.country__left{    
+    width: 50%;
+    height: 420px;
+    margin-right: 4rem;
+}
+.country__left > img{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 8px rgba(0 0 0 / 10%), 0 0.2rem 0.1rem rgb(0 0 0 / 5%);
+    object-fit: cover;
+}
+.country__right{
+    width: 50%;
+    display: flex;
+    align-items: center;   
+}
+.country__info > h2{
+    display: flex; 
+    justify-content: center;    
+}
+.country__bottom{
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+}
+.country__bottom > p{
+    display: flex;  
+    white-space: nowrap;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+.country__borders{
+    margin-left: 10px;
+}
+.country__borders > span > button, .country__borders--none{
+  margin: 5px;
+  padding: 5px 20px; 
+  align-items: center;
+}
+.country__borders > span > button{
+    border: none;
+    background-color: white;
+    box-shadow: 0 5px 8px rgba(0 0 0 / 10%), 0 0.2rem 0.1rem rgb(0 0 0 / 5%);
+    border-radius: 5px;
+    align-items: center;
+}

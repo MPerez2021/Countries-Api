@@ -3,13 +3,17 @@
         <div class="cards__top">
             <div class="cards__search">
                 <i class="fas fa-search"></i>
-                <!--   <input placeholder="Search for a country" (change)="searchCountries($event)" type="text" list="datalistOptions" id="filterInput">     -->
-                <input placeholder="Search for a country" type="text" list="datalistOptions" id="filterInput">
-                <datalist id="datalistOptions">
+                <input placeholder="Search for a country" (keyup)="searchCountries($event)" type="text"
+                    list="datalistOptions" id="filterInput">
+
+                <div class="clear__button" *ngIf="clear">         
+                    <i class="fas fa-times" (click)="clearButton()" type='reset'></i>
+                </div>                
+                <!--  <datalist id="datalistOptions">
                     <div *ngFor="let item of countriesFound">
                         <option value="{{item.name}}">
                     </div>
-                </datalist>
+                </datalist> -->
             </div>
             <div class="cards__filter">
                 <div class="dropdown cards__dropdown">
@@ -35,7 +39,7 @@
 
         <div class="cards__countries" id="Cards">
             <ng-container *ngIf="countriesFound && countriesFound.length === 0 else contenido">
-                <h2>no hay resultados</h2>
+                <h2 class="d-flex justify-content-center">Country not found</h2>
             </ng-container>
             <ng-template #contenido>
                 <div class="row g-4">
@@ -45,9 +49,9 @@
                             <img src="{{country.flag}}" alt="">
                             <div class="card-body">
                                 <h4 class="card-title">{{country.name}}</h4>
-                                <h5 class="card-text">{{country.region}}</h5>
-                                <h5 class="card-text">Region</h5>
-                                <h5 class="card-text">Region</h5>
+                                <p class="card-text">Region: {{country.region}}</p>
+                                <p class="card-text">Capital : {{country.capital}}</p>
+                                <p class="card-text">Population: {{numberWithCommas(country.population)}}</p>
                             </div>
                         </div>
                     </div>

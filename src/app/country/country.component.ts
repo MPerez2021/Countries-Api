@@ -15,36 +15,47 @@ export class CountryComponent implements OnInit {
   countries: Countries[]
   countriesCodes: CountriesCode[] = []
 
-  constructor(private countrySvc: CountriesService, private activeRoute: ActivatedRoute, 
+  constructor(private countrySvc: CountriesService, private activeRoute: ActivatedRoute,
     private router: Router) {
     const id = this.activeRoute.snapshot.params.id
     this.countrySvc.getOneCountry(id).subscribe(data => {
       this.country = data
+      console.log(this.country);
+
     })
     this.countrySvc.getCountry().subscribe(datos => {
       this.countries = datos
       this.countries.forEach(data => {
         let code = data.alpha3Code
         let name = data.name
-        this.countriesCodes.push({ code: code as string, name: name as string }) 
-      })    
+        this.countriesCodes.push({ code: code as string, name: name as string })
+      })
     })
   }
 
   ngOnInit(): void {
-    this.router.routeReuseStrategy.shouldReuseRoute = ()=> false
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false
   }
 
   changeCodeForCountryName(code: string) {
     this.countriesCodes.forEach(data => {
       if (code === data.code) {
         code = data.name
-      }      
+      }
     })
     return code
   }
 
-  redirecTo(code:string){
+  redirecTo(code: string) {
     this.router.navigateByUrl('/inicio/' + code)
   }
+
+  numberWithCommas(number: number) {
+    return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+  }
+
+  commas(name: string){ 
+   return name.replace(/(\s)/g, ",")
+  }
+ 
 }

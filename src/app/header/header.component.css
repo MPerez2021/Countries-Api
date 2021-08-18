@@ -3,7 +3,8 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
-    box-shadow: 0px 5px 8px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 5px 8px -5px rgba(0, 0, 0, 0.75);    
+    position: sticky;
 }
 .header__left{
     display: flex;

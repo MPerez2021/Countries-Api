@@ -1,7 +1,6 @@
 import { CountriesService } from './../servicios/countries.service';
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Countries } from '../modelos/countries';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-inicio',
@@ -11,7 +10,6 @@ import { Observable } from 'rxjs';
 export class InicioComponent {
 
   countries: Countries[] = []
-  countriesName: string
   countriesFound: Countries[]
   regions = [
     {
@@ -38,6 +36,7 @@ export class InicioComponent {
   ]
   totalCountries: number = 0
   filterName = 'Filter by Region'
+  clear: string
   constructor(private countriesSvc: CountriesService, private cdr: ChangeDetectorRef) {
     this.countriesSvc.getCountry().subscribe(datos => {
       this.countries = datos
@@ -51,21 +50,20 @@ export class InicioComponent {
 
   searchCountries(event: any) {
     let countriesFound: Countries[] = []
-    let countryNames: Countries[] = []
+    let filterCountryNames: Countries[] = []
     this.countries.forEach(data => {
       countriesFound.push(data)
     })
 
-    let filterNames = countriesFound.filter(data => {
-      return data.name?.indexOf(event.target.value)
-    })
-    console.log(filterNames);
+    let query = event.target.value.toLowerCase()
+    this.clear = query
 
-    filterNames.forEach(data => {
-      countryNames.push(data)
+    filterCountryNames = countriesFound.filter(data => {
+      return data.name.toLowerCase().indexOf(query) > -1
     })
-    this.countriesFound = countryNames
-    console.log(event);
+    this.countriesFound = filterCountryNames
+    this.totalCountries = this.countriesFound.length
+
   }
 
   filterByRegion(region: string) {
@@ -84,5 +82,17 @@ export class InicioComponent {
       this.totalCountries = this.countriesFound.length
       this.filterName = region
     }
+  }
+
+  numberWithCommas(number: number) {
+    return number.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+  }
+
+  clearButton() {
+    this.countriesFound = this.countries
+    this.totalCountries = this.countriesFound.length
+    let input = document.querySelectorAll('input')
+    input.forEach(input => input.value = '')
+    this.clear = ''
   }
 }
