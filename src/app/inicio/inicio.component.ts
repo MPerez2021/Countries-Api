@@ -42,7 +42,7 @@ export class InicioComponent {
       this.countries = datos
       this.totalCountries = this.countries.length
     })
-
+   
   }
 
   ngOnInit(): void {
@@ -92,7 +92,8 @@ export class InicioComponent {
     this.countriesFound = this.countries
     this.totalCountries = this.countriesFound.length
     let input = document.querySelectorAll('input')
-    input.forEach(input => input.value = '')
-    this.clear = ''
+    input.forEach(input => input.value = '') 
   }
+  
+
 }

@@ -5,7 +5,6 @@
                 <i class="fas fa-search"></i>
                 <input placeholder="Search for a country" (keyup)="searchCountries($event)" type="text"
                     list="datalistOptions" id="filterInput">
-
                 <div class="clear__button" *ngIf="clear">         
                     <i class="fas fa-times" (click)="clearButton()" type='reset'></i>
                 </div>                
@@ -21,8 +20,6 @@
                         <div> {{filterName}}
                         </div>
                         <i class="fas fa-chevron-down"></i>
-
-
                     </button>
                     <ul class="dropdown-menu">
                         <div *ngFor="let region of regions">
@@ -35,8 +32,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="cards__countries" id="Cards">
             <ng-container *ngIf="countriesFound && countriesFound.length === 0 else contenido">
                 <h2 class="d-flex justify-content-center">Country not found</h2>

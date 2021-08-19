@@ -1,12 +1,14 @@
 .cards{
-    min-height: calc(100vh - 86px);
-    width: 100%;    
+    min-height: calc(100vh - 60px);
+    width: 100%;  
+    background-color: var(--bg-color);   
+    transition-duration: var(--transition-duration);
 }
 
 .cards__top{
     display: flex;
-    padding: 10px; 
-    margin-top: 20px;  
+    margin-left: 50px;
+    justify-content: space-between;
 }
 
 .cards__countries{
@@ -16,35 +18,43 @@
 .cards__search{
     display: flex;
     align-items: center;
-    background-color: #eff2f5;
+    background-color: var(--element-color);
+    transition-duration: var(--transition-duration);
     padding: 10px 25px;
-    margin-left: 10px; 
     border-radius: 999px;
     width: 300px;  
     justify-content: space-between;
+    margin-top: 30px;
 }
 
 .cards__search > i{
     display: flex;
     align-items: center; 
-    color: gray;
-    cursor: pointer;
+    color: var(--searchAndFilter-color);
+    cursor: pointer;  
+    transition-duration: var(--transition-duration);
 }
-.cards__search > input {
+
+.cards__search > input, ::placeholder {
     border: none;
     background-color: transparent;
     outline-width: 0;
     margin-left: 10px;
-    width: 100%;
+    width: 100%;   
+    color: var(--placeHolder-color);
+    transition-duration: var(--transition-duration);
 }
+
 .cards__search > .clear__button > i{
     margin-right: 5px;
-    color: gray;
+    color: var(--searchAndFilter-color);
+    transition-duration: var(--transition-duration);
     cursor: pointer;
 }
 .cards__filter{
     display: flex;
     align-items: center;
+    margin-top: 30px;
 }
 
 .cards__dropdown{
@@ -54,14 +64,16 @@
 
 .cards__dropdown > button{  
     display: flex;
-    width: 200px;  
-    background-color: #eff2f5;
+    width: 200px;
+    background-color: var(--element-color);
+    transition-duration: var(--transition-duration);
     border: none;
     outline-width: 0;
     border-radius: 10px;
     align-items: center;
     justify-content: space-between;
-    padding-left: 15px;   
+    padding-left: 15px;
+    color: var(--text-color);
 }
 
 .cards__dropdown > button > i {   
@@ -75,10 +87,12 @@
     transform: rotate(180deg);
 }
 
-.dropdown-menu{
-    width: 100%;
+.dropdown-menu {
+    width: 100%;  
 }
-
+.dropdown-item{
+    cursor: pointer;
+}
 .cards__grid{
     padding: 30px;
 }
@@ -90,6 +104,7 @@
     transition: transform 300ms ease-in;
     cursor: pointer;
     border-radius: 0.5rem;
+    border: none;
 }
 
 .card:hover{
@@ -103,7 +118,17 @@
     height: 180px;
     width: 100%;
 }
+.card-title{
+    color: var(--text-color);
+    transition-duration: var(--transition-duration);
+}
+.card-body{
+    background-color: var(--element-color);
+    transition-duration: var(--transition-duration);
+  
+}
 .card-body > p{
     margin-bottom: 10px;
-    
+    color: var(--text-color);
+    transition-duration: var(--transition-duration);
 }

@@ -7,12 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  element = document.getElementsByTagName('app-root');
   constructor() { }
 
   ngOnInit(): void {
+    const currenTheme = localStorage.getItem('theme');
+    if (currenTheme == 'dark') {
+      this.element[0].classList.add('dark-mode')
+    }
   }
 
-  searchCountries(event: any){
-    console.log(event.target.value);    
+  darkMode() {
+    let theme = 'light'
+    this.element[0].classList.toggle('dark-mode')
+    if (this.element[0].classList.contains('dark-mode')) {
+      theme = 'dark' 
+    }
+    localStorage.setItem('theme', theme)
+
   }
 }

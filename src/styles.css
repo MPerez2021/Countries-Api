@@ -1,0 +1,22 @@
+:root{
+    --bg-color: white;
+    --element-color: #fafafa;
+    --icon-color: black;
+    --searchAndFilter-color: gray;
+    --placeHolder-color: black;
+    --text-color: black;
+    --h2-color: black;
+    --transition-duration: 0.5s;
+}
+
+.dark-mode{
+    --bg-color: #202c37;
+    --element-color: #2b3945;
+    --icon-color: white;
+    --searchAndFilter-color: white;
+    --placeHolder-color: white;
+    --text-color: white;
+    --h2-color: white;  
+    --transition-duration: 0.5s;
+}
+
