@@ -9,6 +9,7 @@
     min-height: calc(100vh - 60px);
     transition-duration: var(--transition-duration);
 }
+
 .country > button{  
     padding: 10px 35px;
     border: none;
@@ -41,7 +42,7 @@
     width: 100%;
     height: 100%;
     box-shadow: 0 5px 8px rgba(0 0 0 / 10%), 0 0.2rem 0.1rem rgb(0 0 0 / 5%);
-    object-fit: cover;
+    object-fit: cover; 
 }
 .country__right{
     width: 50%;
@@ -90,3 +91,102 @@
     align-items: center;
     transition-duration: var(--transition-duration);
 }
+
+@media (max-width:575px){
+    .country{
+        padding: 50px;
+    }
+    .country__data{
+        flex-direction: column;       
+    }
+    .country__left{
+        width: 100%;
+        height: 220px;
+    } 
+    .country__left > img{
+        height: 100%;
+        width: 100%;
+    }
+    .country__right{
+        width: 100%;      
+    }  
+    .country__info > h2{
+        margin: 20px 0px;
+    }
+    .country__bottom{
+       flex-direction: column;
+    }
+    .country__borders{
+        margin: 0px;
+    }
+    .country__borders--none{
+        margin: 0px;
+        padding: 0;
+    }
+}
+
+@media (min-width:576px){   
+    .country{
+        padding: 40px;
+    }
+    .country__data{
+        flex-direction: column;
+    }
+   .country__left{
+        width: 100%;       
+    } 
+   
+    .country__right{
+        width: 100%;
+    }
+    .country__info > h2{
+        margin: 20px 0px;
+    }  
+}
+@media (min-width:768px) and (max-width:1199px){   
+    .country{
+        padding: 40px;
+    }
+    .country__data{
+        flex-direction: column;
+    }
+    .country__left{
+        width: 100%;
+        height: 300px;
+        margin-right: 0px;
+    } 
+    .country__left > img{ 
+        width: 500px;
+    }
+    .country__right{
+        width: 100%;      
+    }
+   
+    .country__info > h2{
+        margin: 20px 0px;
+    }  
+}
+
+@media (min-width:1200px){
+    .country__data{
+        flex-direction: row;
+    }
+    .country__left{      
+        width: 50%;
+    }  
+    .country__left > img{
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 5px 8px rgba(0 0 0 / 10%), 0 0.2rem 0.1rem rgb(0 0 0 / 5%);
+        object-fit: cover;
+    }
+    .country__right{
+        width: 50%;
+    }
+
+}
+/* @media only screen and (min-width: 992px) and (max-width: 1199){
+    .country__bottom{        
+        flex-direction: column;
+    }
+} */

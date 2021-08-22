@@ -6,13 +6,8 @@
 }
 
 .cards__top{
-    display: flex;
-    margin-left: 50px;
-    justify-content: space-between;
-}
-
-.cards__countries{
-    padding: 15px;
+    display: flex;   
+    padding: 30px;
 }
 
 .cards__search{
@@ -21,10 +16,7 @@
     background-color: var(--element-color);
     transition-duration: var(--transition-duration);
     padding: 10px 25px;
-    border-radius: 999px;
-    width: 300px;  
-    justify-content: space-between;
-    margin-top: 30px;
+    border-radius: 999px;    
 }
 
 .cards__search > i{
@@ -40,7 +32,7 @@
     background-color: transparent;
     outline-width: 0;
     margin-left: 10px;
-    width: 100%;   
+    width: 100%;
     color: var(--placeHolder-color);
     transition-duration: var(--transition-duration);
 }
@@ -51,10 +43,19 @@
     transition-duration: var(--transition-duration);
     cursor: pointer;
 }
+
 .cards__filter{
     display: flex;
-    align-items: center;
-    margin-top: 30px;
+    align-items: center; 
+    height: 46px; 
+    justify-content: flex-end;  
+}
+
+.total__countries{
+    display: flex;
+    align-items: center;  
+    color: var(--text-color);
+    transition-duration: var(--transition-duration);    
 }
 
 .cards__dropdown{
@@ -111,6 +112,10 @@
     transform: scale(1.05);
 }
 
+.country__notFound{
+    color: var(--text-color);
+    transition-duration: var(--transition-duration);
+}
 .card > img{
     border-radius: 0.5rem 0.5rem 0 0;
     object-fit: cover;
@@ -131,4 +136,15 @@
     margin-bottom: 10px;
     color: var(--text-color);
     transition-duration: var(--transition-duration);
+}
+
+ @media (max-width:575px){
+    .cards__top{
+        flex-direction: column;       
+    }
+    .cards__filter{        
+        justify-content: flex-start;
+        margin-top: 30px;
+    }
+    
 }

@@ -42,15 +42,16 @@ export class InicioComponent {
       this.countries = datos
       this.totalCountries = this.countries.length
     })
-   
-  }
 
+  }
+  t: boolean = false
   ngOnInit(): void {
   }
 
   searchCountries(event: any) {
     let countriesFound: Countries[] = []
     let filterCountryNames: Countries[] = []
+    let value: string = ''
     this.countries.forEach(data => {
       countriesFound.push(data)
     })
@@ -64,6 +65,14 @@ export class InicioComponent {
     this.countriesFound = filterCountryNames
     this.totalCountries = this.countriesFound.length
 
+    let input = document.querySelectorAll('input')
+    input.forEach(input => {
+      value = input.value
+    })
+
+    if (value !== '') {
+      this.filterName = 'Filter by Region'
+    }
   }
 
   filterByRegion(region: string) {
@@ -77,11 +86,13 @@ export class InicioComponent {
     })
 
     this.countriesFound = countriesByRegion
+
     if (region === 'All') {
       this.countriesFound = this.countries
       this.totalCountries = this.countriesFound.length
       this.filterName = region
     }
+
   }
 
   numberWithCommas(number: number) {
@@ -91,9 +102,9 @@ export class InicioComponent {
   clearButton() {
     this.countriesFound = this.countries
     this.totalCountries = this.countriesFound.length
+    this.clear = ''
     let input = document.querySelectorAll('input')
-    input.forEach(input => input.value = '') 
+    input.forEach(input => input.value = '')
   }
-  
 
 }

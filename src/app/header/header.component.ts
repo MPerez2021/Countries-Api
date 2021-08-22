@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
     if (currenTheme == 'dark') {
       this.element[0].classList.add('dark-mode')
     }
+    /* this.detectSystemColorScheme() */
   }
 
   darkMode() {
@@ -24,6 +25,17 @@ export class HeaderComponent implements OnInit {
       theme = 'dark' 
     }
     localStorage.setItem('theme', theme)
+
+  }
+
+  detectSystemColorScheme(){
+    const preferDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    let scheme = document.getElementsByTagName('app-root');
+    if(preferDarkScheme.matches){
+      scheme[0].classList.add('dark-mode')
+    }else{
+      scheme[0].classList.remove('dark-mode')
+    }
 
   }
 }
