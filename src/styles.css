@@ -5,7 +5,8 @@
     --searchAndFilter-color: gray;
     --placeHolder-color: black;
     --text-color: black;
-    --h2-color: black;
+    --h2-color: black;    
+    --border: rgba(0,0,0,.125);
     --transition-duration: 0.5s;
 }
 
@@ -18,5 +19,6 @@
     --text-color: white;
     --h2-color: white;  
     --transition-duration: 0.5s;
+    --border: white;
 }
 

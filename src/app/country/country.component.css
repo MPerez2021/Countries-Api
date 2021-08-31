@@ -1,12 +1,7 @@
-.background{
-    background-color: var(--bg-color);
-    min-height: calc(100vh - 60px);
-    transition-duration: var(--transition-duration);
-}
 .country{
     padding-top: 50px;
     background-color: var(--bg-color);
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 70px);
     transition-duration: var(--transition-duration);
 }
 

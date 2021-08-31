@@ -1,3 +1,4 @@
+import { MapSearchComponent } from './map-search/map-search.component';
 import { CountryComponent } from './country/country.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: 'inicio/:id', component: CountryComponent
+  },
+  {
+    path: 'map', component: MapSearchComponent
   },
   {
     path: '**',

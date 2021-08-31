@@ -1,0 +1,21 @@
+<div class="mapSearch">
+    <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 form__search">
+        <div class="card">
+            <div class="card-body" >
+                <form>
+                    <div class="input-group input__search">
+                        <label class="form-label">Country</label>
+                        <input type="text" placeholder="Ej. Germany" class="form-control" name='name' [(ngModel)]="country.name">
+                    </div>
+                    <div class="buttons__search">
+                        <button class="search btn btn-primary" (click)="handleSubmit($event, country.name)" type="submit">Search</button>
+                        <button class="btn btn-secondary" (click)="newSearch()" type="submit">New search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="mapa col-sm-12 col-md-7 col-lg col-xl">
+        <div id="map"></div>
+    </div>
+</div>

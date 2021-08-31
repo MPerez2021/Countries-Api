@@ -1,0 +1,69 @@
+/*MAP STYLE*/
+.mapSearch{
+    display: flex;
+    
+    min-height: calc(100vh - 70px);
+    background-color: var(--bg-color);
+    transition: var(--transition-duration);
+}
+
+#map {
+    height: 500px;     
+}
+
+/* FORM STYLES */
+.form__search, .mapa{
+    padding: 20px;
+}
+
+.card{
+    background-color: var(--bg-color);   
+    transition: var(--transition-duration);
+    border-color: var(--border);
+}
+
+.form-label{
+    color: var(--text-color)
+    
+}
+
+.input__search > input, ::placeholder{    
+        background-color: transparent;
+        outline-width: 0;        
+        color: var(--placeHolder-color);
+        transition-duration: var(--transition-duration);  
+        width: 100%;
+}
+
+.buttons__search{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;   
+}
+
+.buttons__search > button{
+    width: 100%;
+}
+
+.buttons__search > .search{
+    margin-right: 10px;
+}
+
+/*RESPONSIVE MEDIA QUERIES*/
+@media (max-width:575px){
+    .mapSearch{  
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+@media (min-width:576px){
+    .mapSearch{      
+        flex-direction: column;       
+    }    
+}
+@media (min-width:768px){
+    .mapSearch{      
+        flex-direction: row;       
+    }    
+}

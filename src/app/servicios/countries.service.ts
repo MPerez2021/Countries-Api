@@ -11,13 +11,18 @@ export class CountriesService {
   constructor(private HttpCliente: HttpClient) { }
 
   private apiUrl = 'https://restcountries.eu/rest/v2/all';
-  private apiUrlByName = 'https://restcountries.eu/rest/v2/alpha/'
+  private apiUrlByCode = 'https://restcountries.eu/rest/v2/alpha/'
+  private apiUrlByName = 'https://restcountries.eu/rest/v2/name/'
   getCountry() {
     return this.HttpCliente.get<Countries[]>(this.apiUrl)
   }
 
-  getOneCountry(name:string): Observable<Countries> {
-    return this.HttpCliente.get<Countries>(this.apiUrlByName + `${name}`)
+  getOneCountryByCode(code:string): Observable<Countries> {
+    return this.HttpCliente.get<Countries>(this.apiUrlByCode + `${code}`)
   }
 
+  getCountryByName(name:string): Observable<Countries>{
+    return this.HttpCliente.get<Countries>(this.apiUrlByName + `${name}`)
+  }
+ 
 }

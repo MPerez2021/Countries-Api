@@ -18,11 +18,11 @@ export class CountryComponent implements OnInit {
   constructor(private countrySvc: CountriesService, private activeRoute: ActivatedRoute,
     private router: Router) {
     const id = this.activeRoute.snapshot.params.id
-    this.countrySvc.getOneCountry(id).subscribe(data => {
+    this.countrySvc.getOneCountryByCode(id).subscribe(data => {
       this.country = data
       console.log(this.country);
-
     })
+    
     this.countrySvc.getCountry().subscribe(datos => {
       this.countries = datos
       this.countries.forEach(data => {
