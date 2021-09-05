@@ -47,7 +47,8 @@ export class CountryComponent implements OnInit {
   }
 
   redirecTo(code: string) {
-    this.router.navigateByUrl('/inicio/' + code)
+    this.router.navigateByUrl('/country/' + code) 
+    
   }
 
   numberWithCommas(number: number) {

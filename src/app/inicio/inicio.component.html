@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="total__countries col-12 justify-content-center">
-            Total Countries: {{totalCountries}}
+            <h2>Total Countries: {{totalCountries}}</h2>
         </div> 
         <div class="cards__countries" id="Cards">
             <ng-container *ngIf="countriesFound && countriesFound.length === 0 else contenido">
@@ -41,7 +41,7 @@
                 <div class="row g-0">
                     <div class="cards__grid d-flex justify-content-around col-sm-12 col-md-6 col-lg-4 col-xl-3"
                         *ngFor="let country of countriesFound ? countriesFound : countries">
-                        <div class="card" routerLink='/inicio/{{country.alpha3Code}}'>
+                        <div class="card" routerLink='/country/{{country.alpha3Code}}'>
                             <img src="{{country.flag}}" alt="">
                             <div class="card-body">
                                 <h4 class="card-title">{{country.name}}</h4>

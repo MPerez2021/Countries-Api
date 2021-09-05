@@ -17,6 +17,7 @@
     transition-duration: var(--transition-duration);
     padding: 10px 25px;
     border-radius: 999px;    
+    box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
 }
 
 .cards__search > i{
@@ -58,9 +59,14 @@
     transition-duration: var(--transition-duration);    
 }
 
+.total__countries > h2{
+    color: var(--text-color);
+    transition: var(--transition-duration);
+}
 .cards__dropdown{
     display: flex;  
-    height: 100%;  
+    height: 100%; 
+   
 }
 
 .cards__dropdown > button{  
@@ -75,6 +81,7 @@
     justify-content: space-between;
     padding-left: 15px;
     color: var(--text-color);
+    box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75); 
 }
 
 .cards__dropdown > button > i {   

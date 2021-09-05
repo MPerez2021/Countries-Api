@@ -30,4 +30,6 @@
 }
 .header__map{
     margin-right: 20px;
+    color: var(--text-color);
+    transition: var(--transition-duration);
 }

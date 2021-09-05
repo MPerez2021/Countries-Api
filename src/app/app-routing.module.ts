@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'inicio', component: InicioComponent
   },
   {
-    path: 'inicio/:id', component: CountryComponent
+    path: 'country/:id', component: CountryComponent
   },
   {
     path: 'map', component: MapSearchComponent

@@ -1,21 +1,52 @@
 <div class="mapSearch">
-    <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 form__search">
+    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 form__search">
         <div class="card">
-            <div class="card-body" >
-                <form>
+            <div class="card-body">
+                <form #Form='ngForm'>
                     <div class="input-group input__search">
-                        <label class="form-label">Country</label>
-                        <input type="text" placeholder="Ej. Germany" class="form-control" name='name' [(ngModel)]="country.name">
+                        <h5>Search your favorite country ! </h5>
+                        <label class="form-label">Country name</label>
+                        <input type="text" placeholder="Ex. Germany" class="form-control" name='name'
+                            [(ngModel)]="country.name" required>
                     </div>
                     <div class="buttons__search">
-                        <button class="search btn btn-primary" (click)="handleSubmit($event, country.name)" type="submit">Search</button>
+                        <button class="search btn btn-primary" (click)="handleSubmit($event, country.name)"
+                            type="submit">Search</button>
                         <button class="btn btn-secondary" (click)="newSearch()" type="submit">New search</button>
                     </div>
                 </form>
             </div>
         </div>
+
+        <div class="card result__card " *ngIf="countryFound && countryFound.length > 0">
+            <div class="card-body">
+                <div class="result__search">
+                    <div class="image__result">
+                        <img src="{{countryFound[0].flag}}" alt="">
+                    </div>
+                    <div class="info__result">
+                        <h5>Country: {{countryFound[0].name}} </h5>
+                        <h5>Subregion: {{countryFound[0].subregion}} </h5>
+                        <h5>Capital: {{countryFound[0].capital}} </h5>
+                        <h5>Currencie: {{countryFound[0].currencies[0].name}} </h5>
+                        <h5>Population: {{numberWithCommas(countryFound[0].population)}} </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="more__info">
+                <button class="btn" routerLink='/country/{{countryFound[0].alpha3Code}}'> See more <i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
     </div>
-    <div class="mapa col-sm-12 col-md-7 col-lg col-xl">
+
+    <div class="mapa col-sm-6 col-md-7 col-lg col-xl">
         <div id="map"></div>
     </div>
+
 </div>
+<ng-template #name>
+    <div id="test">
+        AEIOU
+    </div>
+</ng-template>

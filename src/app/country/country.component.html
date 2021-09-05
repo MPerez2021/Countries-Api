@@ -1,40 +1,42 @@
-
-    <div class="country container-fluid col-12" *ngIf="country">
-        <button routerLink='/inicio' class="col">
-            <i class="fas fa-long-arrow-alt-left"></i> Back
-        </button>
-        <div class="country__data">
-            <div class="country__left d-flex justify-content-center">
+<div class="country container-fluid col-12" *ngIf="country">
+    <button routerLink='/inicio' class="col">
+        <i class="fas fa-long-arrow-alt-left"></i> Back
+    </button>
+    <div class="country__data">
+        <div class="image">
+            <div class="country__left">
                 <img src="{{country.flag}}" alt="">
             </div>
-            <div class="country__right">
-                <div class="country__info row col-sm-12 g-0">
-                    <h2>{{country.name}}</h2>
-                    <h3>Information</h3>
-                    <p class="col-6 col-md-3 col-xl-6"><strong>Capital:</strong> {{country.capital}}</p>
-                    <p class="col-6 col-md-3 col-xl-6"><strong>Region:</strong> {{country.region}}</p>
-                    <p class="col-6 col-md-3 col-xl-6"><strong>Language:</strong>
-                        <ng-container *ngFor="let item of country.languages">
-                            {{commas(item.name)}}
-                        </ng-container>
-                    </p>                             
-                    <p class="col-6 col-md-3 col-xl-6"><strong>Population:</strong> {{numberWithCommas(country.population)}}</p>
-                    <p class="col-6 col-md-3 col-xl-6"><strong>Currency:</strong>
-                        {{country.currencies[0].name}} </p>                   
-                    <p class="col-6 col-md-3 col-xl-6"><strong>Subregion:</strong> {{country.subregion}}</p>
-                    <p class="col-6 col-md-3 col-xl-6"><strong>Native Name:</strong> {{country.nativeName}}</p>
-                    <div class="country__bottom">
-                        <p> <strong>Border Countries: </strong> </p>
-                        <div class="country__borders">
-                            <span *ngFor="let item of country.borders">
-                                <button (click)="redirecTo(item)">{{changeCodeForCountryName(item)}}</button>
-                            </span>
-                            <div class="country__borders--none" *ngIf="country.borders.length === 0">
-                                <p>None (This country is probably on an island)</p>
-                            </div>
+        </div>
+        <div class="country__right">
+            <div class="country__info row col-sm-12 g-0">
+                <h2>{{country.name}}</h2>
+                <h3>Information</h3>
+                <p class="col-6 col-md-3 col-xl-6"><strong>Capital:</strong> {{country.capital}}</p>
+                <p class="col-6 col-md-3 col-xl-6"><strong>Region:</strong> {{country.region}}</p>
+                <p class="col-6 col-md-3 col-xl-6"><strong>Language:</strong>
+                    <ng-container *ngFor="let item of country.languages">
+                        {{commas(item.name)}}
+                    </ng-container>
+                </p>
+                <p class="col-6 col-md-3 col-xl-6"><strong>Population:</strong> {{numberWithCommas(country.population)}}
+                </p>
+                <p class="col-6 col-md-3 col-xl-6"><strong>Currency:</strong>
+                    {{country.currencies[0].name}} </p>
+                <p class="col-6 col-md-3 col-xl-6"><strong>Subregion:</strong> {{country.subregion}}</p>
+                <p class="col-6 col-md-3 col-xl-6"><strong>Native Name:</strong> {{country.nativeName}}</p>
+                <div class="country__bottom">
+                    <p> <strong>Border Countries: </strong> </p>
+                    <div class="country__borders">
+                        <span *ngFor="let item of country.borders">
+                            <button (click)="redirecTo(item)">{{changeCodeForCountryName(item)}}</button>
+                        </span>
+                        <div class="country__borders--none" *ngIf="country.borders.length === 0">
+                            <p>None (This country is probably on an island)</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
