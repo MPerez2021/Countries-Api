@@ -1,12 +1,34 @@
 <div class="header">
     <div class="header__left">
-        <i class="fas fa-home" routerLink='/inicio'></i>        
+        <i class="fas fa-home" routerLink='/inicio'></i>
     </div>
-    <div class="header__right d-flex align-items-center">
-        <div class="header__map" routerLink='/map'>
-            <i class="fas fa-map-marker-alt"></i> Map Search
+    <div class="header__hamburguerIcon">
+        <i class="fas fa-bars" (click)="seeMenu()"></i>
+    </div>
+    <div class="header__right d-flex align-items-center">   
+        <div class="header__links">
+            <div class="header__map" routerLink='/map'>
+                <i class="fas fa-map-marker-alt"></i> Map Search
+            </div>
+            <div class="header__darkMode">
+                <div id="toggle" (click)="darkMode()">
+                    <div class="icons__toggle">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <i class="indicator"></i>
+                </div>
+            </div>
+            <div class="dropdown cards__dropdown">
+                <button type="button" data-bs-toggle="dropdown">
+                    <i class="fas fa-moon"></i> {{test}}</button>
+                <ul class="dropdown-menu">
+                    <div *ngFor="let region of theme; let i = index">
+                        <li (click)="darkModeV2(region.name)"><a class="dropdown-item">{{region.name}}</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
         </div>
-        <i class="fas fa-moon" (click)="darkMode()"></i>
-
     </div>
 </div>

@@ -6,7 +6,8 @@
     box-shadow: 0px 5px 8px -5px rgba(0, 0, 0, 0.75);    
     position: sticky;
     transition-duration: var(--transition-duration);
-
+    z-index: 100;   
+    flex-wrap: wrap;
 }
 .header__left{
     display: flex;
@@ -20,16 +21,103 @@
     color: var(--icon-color);
 }
 
+.header__hamburguerIcon{
+    color: var(--icon-color);
+    display: none;
+}
+
 .header__right{
     font-size: 20px;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .header__right > i {
     color: var(--icon-color);
 }
+
+.header__links{
+    display: flex; 
+}
+
 .header__map{
     margin-right: 20px;
     color: var(--text-color);
     transition: var(--transition-duration);
+}
+
+#toggle{
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 30px;
+    border-radius: 160px;
+    background-color: white;
+    transition: 0.5s;
+    box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+    inset 0 8px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+   
+}
+.icons__toggle{
+    display: flex; 
+    justify-content: space-between;   
+}
+
+.icons__toggle > i{
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+}
+    
+#toggle .indicator{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: var(--element-color);
+    border-radius: 50%;
+    transform: scale(0.9);
+    box-shadow: var(--box-shadow);
+    transition: 0.5s;
+}
+
+#toggle.active .indicator{
+    left: 30px;  
+}
+
+/*STYLES DE PRUEBA*/
+.cards__dropdown {
+    margin-left: 10px;
+    max-width: 160px;  
+    
+}
+
+.cards__dropdown > button{
+    border: none;
+    background-color: transparent;    
+    color: var(--text-color); 
+}
+
+
+/*RESPONSIVE DESIGN*/
+@media (max-width: 991px) {  
+    .header__right{
+        width: 100%;
+    }
+    .header__links{
+        display: none;        
+    }
+    .header__links.show{      
+        display: flex;        
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .header__hamburguerIcon{
+        display: block;
+    }
 }

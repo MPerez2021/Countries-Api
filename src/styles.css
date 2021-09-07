@@ -8,6 +8,9 @@
     --h2-color: black;    
     --border: rgba(0,0,0,.125);
     --transition-duration: 0.5s;
+    --box-shadow: 0 8px 40px rgba(0, 0, 0, 0.815),
+    inset  0 4px 4px rgba(184, 22, 22, 0.2),
+    inset  0 -4px 4px rgba(201, 18, 18, 0.2);
 }
 
 .dark-mode{
@@ -20,5 +23,8 @@
     --h2-color: white;  
     --transition-duration: 0.5s;
     --border: white;
+    --box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+    inset  0 4px 4px rgba(255, 255, 255, 0.2),
+    inset  0 -4px 4px rgba(255, 255, 255, 0.2);
 }
 

@@ -1,7 +1,7 @@
 /*MAP STYLE*/
 .mapSearch{
     display: flex;    
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 72px);
     background-color: var(--bg-color);
     transition: var(--transition-duration);
 }
@@ -107,7 +107,8 @@
 @media (max-width:575px){
     .mapSearch{  
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
+        min-height: calc(100vh - 64px);      
     }
 
     .mapa{
@@ -119,17 +120,30 @@
     }
 
 }
+
+
+
 @media (min-width:576px){
     .mapSearch{      
         flex-direction: row; 
+        min-height: calc(100vh - 64px);
+      
     }   
     #map{
         height: 100%;
         width: 100%;
     }
+
+  
 }
 @media (min-width:768px){
     .mapSearch{      
         flex-direction: row;       
     }    
+}
+
+@media (min-width:992px){
+    .mapSearch{
+        min-height: calc(100vh - 72px);
+    }
 }

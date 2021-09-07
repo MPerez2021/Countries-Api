@@ -1,7 +1,8 @@
 .country{
     padding-top: 50px;
     background-color: var(--bg-color);
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 72px);
+    transition-duration: var(--transition-duration);
 }
 
 .country > button{  
@@ -93,7 +94,7 @@
 
 @media (max-width:575px){
     .country{
-        padding: 50px;
+        padding: 50px;      
     }
     .country__data{
         flex-direction: column;       
@@ -129,6 +130,7 @@
 @media (min-width:576px){   
     .country{
         padding: 40px;
+
     }
     .country__data{
         flex-direction: column;
@@ -163,7 +165,6 @@
     .country__data{
         flex-direction: column;
     }
-
     .image{
         display: flex;
         justify-content: center;
