@@ -20,7 +20,14 @@
     font-size: 20px;
     color: var(--icon-color);
 }
-
+.header__left > h5{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--icon-color);
+    margin-bottom: 0;
+}
 .header__hamburguerIcon{
     color: var(--icon-color);
     display: none;

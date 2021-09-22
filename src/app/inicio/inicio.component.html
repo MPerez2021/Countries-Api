@@ -1,60 +1,57 @@
-<div class="container-fluid">
-    <div class="cards">
-        <div class="cards__top col-12">
-            <div class="cards__search col-xs-12 col-sm-6 col-md-6 col-lg-5 col-xl-4">
-                <i class="fas fa-search"></i>
-                <input placeholder="Search for a country" (keyup)="searchCountries($event)" type="text"
-                    list="datalistOptions" id="filterInput">
-                <div class="clear__button" *ngIf="clear">
-                    <i class="fas fa-times" (click)="clearButton()" type='reset'></i>
-                </div>
-                <!--  <datalist id="datalistOptions">
+<div class="cards">
+    <div class="cards__top col-12">
+        <div class="cards__search col-xs-12 col-sm-6 col-md-6 col-lg-5 col-xl-4">
+            <i class="fas fa-search"></i>
+            <input placeholder="Search for a country" (keyup)="searchCountries($event)" type="text"
+                list="datalistOptions" id="filterInput">
+            <div class="clear__button" *ngIf="clear">
+                <i class="fas fa-times" (click)="clearButton()" type='reset'></i>
+            </div>
+            <!--  <datalist id="datalistOptions">
                     <div *ngFor="let item of countriesFound">
                         <option value="{{item.name}}">
                     </div>
                 </datalist> -->
-            </div>
-            <div class="cards__filter col-xs-12 col-sm-6 col-md-6 col-lg-7 col-xl-8">
-                <div class="dropdown cards__dropdown">
-                    <button type="button" data-bs-toggle="dropdown">
-                        <div> {{filterName}}
-                        </div>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <div *ngFor="let region of regions">
-                            <li (click)="filterByRegion(region.name)"><a class="dropdown-item">{{region.name}}</a>
-                            </li>
-                        </div>
-                    </ul>
-                </div>
-            </div>
         </div>
-        <div class="total__countries col-12 justify-content-center">
-            <h2>Total Countries: {{totalCountries}}</h2>
-        </div> 
-        <div class="cards__countries" id="Cards">
-            <ng-container *ngIf="countriesFound && countriesFound.length === 0 else contenido">
-                <h2 class="country__notFound d-flex justify-content-center">Sorry, country not found :'(</h2>
-            </ng-container>
-            <ng-template #contenido>
-                <div class="row g-0">
-                    <div class="cards__grid d-flex justify-content-around col-sm-12 col-md-6 col-lg-4 col-xl-3"
-                        *ngFor="let country of countriesFound ? countriesFound : countries">
-                        <div class="card" routerLink='/country/{{country.alpha3Code}}'>
-                            <img src="{{country.flag}}" alt="">
-                            <div class="card-body">
-                                <h4 class="card-title">{{country.name}}</h4>
-                                <p class="card-text">Region: {{country.region}}</p>
-                                <p class="card-text">Capital : {{country.capital}}</p>
-                                <p class="card-text">Population: {{numberWithCommas(country.population)}}</p>
-                            </div>
-                        </div>
+        <div class="cards__filter col-xs-12 col-sm-6 col-md-6 col-lg-7 col-xl-8">
+            <div class="dropdown cards__dropdown">
+                <button type="button" data-bs-toggle="dropdown">
+                    <div> {{filterName}}
                     </div>
-                </div>
-            </ng-template>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <div *ngFor="let region of regions">
+                        <li (click)="filterByRegion(region.name)"><a class="dropdown-item">{{region.name}}</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
         </div>
-
+    </div>
+    <div class="total__countries col-12 justify-content-center" data-aos="fade-down"
+    data-aos-duration="1000" *ngIf="countries && countries.length > 0">
+        <h2>Total Countries: {{totalCountries}}</h2>
     </div>
 
+    <ng-container *ngIf="countriesFound && countriesFound.length === 0 else contenido">
+        <h2 class="country__notFound d-flex justify-content-center">Sorry, country not found :'(</h2>
+    </ng-container>
+    <ng-template #contenido>
+        <div class="row g-0">
+            <div class="cards__grid d-flex justify-content-around col-sm-12 col-md-6 col-lg-4 col-xl-3"
+                *ngFor="let country of countriesFound ? countriesFound : countries" data-aos="fade-up"
+                data-aos-duration="1000">
+                <div class="card" routerLink='/country/{{country.alpha3Code}}'>
+                    <img src="{{country.flag}}" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">{{country.name}}</h4>
+                        <p class="card-text">Region: {{country.region}}</p>
+                        <p class="card-text">Capital : {{country.capital}}</p>
+                        <p class="card-text">Population: {{numberWithCommas(country.population)}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
 </div>

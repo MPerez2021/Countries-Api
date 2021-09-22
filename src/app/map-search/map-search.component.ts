@@ -12,7 +12,6 @@ import { Countries } from '../modelos/countries';
 })
 export class MapSearchComponent {
 
-  @ViewChild('x') info: ElementRef
   country: Countries = {
     name: '',
     population: 0,
@@ -23,12 +22,10 @@ export class MapSearchComponent {
   }
 
   countryFound: any
-  x: Countries
   constructor(private countriesSvc: CountriesService) {
-
   }
 
-
+  ver:boolean= false;
   initMap() {
     let infoWindow = new google.maps.InfoWindow();
     let uluru = { lat: -25.344, lng: 131.036 };
@@ -59,17 +56,13 @@ export class MapSearchComponent {
   handleSubmit(event: any, name: string) {
     event.preventDefault()
     this.countriesSvc.getCountryByName(name).subscribe(data => {
-      this.countryFound = data
-      this.x = data
-      console.log(this.x);
+      this.countryFound = data     
       let newMapPosition = {
         lat: this.countryFound[0].latlng[0],
         lng: this.countryFound[0].latlng[1]
-      }
-      console.log(newMapPosition);
+      }      
       this.newMapUbication(newMapPosition)
     })
-
   }
 
   newMapUbication(mapPosition: any) {
@@ -78,13 +71,19 @@ export class MapSearchComponent {
       zoom: 5
     })
 
+    
+    let capital = 'Capital ' + this.countryFound[0].capital + '<br>'
+    let lat =  'Latitud: ' + this.countryFound[0].latlng[0] + '<br>'
+    let lon = 'Longitud: ' + this.countryFound[0].latlng[1]
+      
+   
     const contenido = document.getElementById('test') as HTMLElement
-
     const infoWindow = new google.maps.InfoWindow({
-      content: contenido,
+      content: capital + lat + lon,
       position: mapPosition
     })
 
+    
     const marker = new google.maps.Marker({
       position: mapPosition,
       map: map
@@ -100,7 +99,7 @@ export class MapSearchComponent {
 
   newSearch() {
     this.countryFound = this.country
-    this.country.name = ''
+    this.country.name = ''    
   }
 
   numberWithCommas(number: number) {

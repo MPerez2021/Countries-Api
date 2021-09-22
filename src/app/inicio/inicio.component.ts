@@ -1,13 +1,14 @@
 import { CountriesService } from './../servicios/countries.service';
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Countries } from '../modelos/countries';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent {
+export class InicioComponent implements OnInit {
 
   countries: Countries[] = []
   countriesFound: Countries[]
@@ -34,6 +35,7 @@ export class InicioComponent {
       name: 'Polar'
     }
   ]
+
   totalCountries: number = 0
   filterName = 'Filter by Region'
   clear: string
@@ -44,8 +46,8 @@ export class InicioComponent {
     })
 
   }
-  t: boolean = false
-  ngOnInit(): void {
+  ngOnInit() {
+    AOS.init();
   }
 
   searchCountries(event: any) {
